@@ -1,0 +1,40 @@
+
+<!-- notes/templates/base.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        {% block title %}
+            Sticky Notes
+        {% endblock title %}
+    </title>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="{% static 'notes/styles.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>
+            {% block header %}
+                Sticky Notes App
+            {% endblock header %}
+        </h1>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Pages will inject their content here -->
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sticky Notes App</p>
+    </footer>
+</body>
+</html>

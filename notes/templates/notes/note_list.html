@@ -1,0 +1,32 @@
+<!-- notes/templates/notes/note_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}
+    Sticky Notes  {{ page_title }}
+{% endblock title %}
+
+
+{% block content %}
+    <h2>{{ page_title }}</h2>
+
+    <!-- Add new note button -->
+    <p>
+        <a href="{% url 'create_note' %}" class="btn-add"> Add Note</a>
+    </p>
+
+    <!-- Notes list -->
+    <ul class="Notes List">
+        {% for note in notes %}
+            <li class="note-item">
+                <a href="{% url 'note_detail' pk=note.id %}" class="note-title">
+                    {{ note.title }}
+                </a>
+                {% comment %} <p class="note-preview">{{ note.content }}</p> {% endcomment %}
+            </li>
+
+            {% empty %}
+            <p>No notes yet. Create one!</p>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+

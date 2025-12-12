@@ -1,0 +1,26 @@
+<!-- posts/templates/posts/post_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Sticky Notes {{ note.title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="note_detail">
+        <h2>{{ post.title }}</h2>
+
+        <p class="note-content">{{ note.content }}</p>
+
+        <p class="note-date">
+            Created at: {{ note.created_at }}
+        </p>
+
+        <div class="note-actions">
+            <a href="{% url 'update_note' pk=note.pk %}" class="btn-edit"> Edit</a>
+            <a href="{% url 'delete_note' pk=note.pk %}" class="btn-delete"> Delete</a>
+            <a href="{% url 'note_list' %}" class="btn-back"> Back to Notes</a>
+        </div>
+    </div>
+{% endblock content %}
+
